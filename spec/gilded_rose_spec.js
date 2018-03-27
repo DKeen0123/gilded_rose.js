@@ -11,5 +11,9 @@ describe('Gilded Rose', function() {
     it('has a name', function() {
       expect(bread.name).toEqual('Bread');
     });
+
+    it('has a sellIn', function() {
+      expect(bread.sellIn).toEqual(10);
+    });
   });
 });
