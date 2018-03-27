@@ -1,9 +1,15 @@
-describe("Gilded Rose", function() {
+describe('Gilded Rose', function() {
+  describe('Item', function() {
+    let item;
+    let gildedRose;
 
-  it("should foo", function() {
-    const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].name).toEqual("fixme");
+    beforeEach(function() {
+      bread = new Item('Bread', 10, 30);
+      gildedRose = new Shop([bread]);
+    });
+
+    it('has a name', function() {
+      expect(bread.name).toEqual('Bread');
+    });
   });
-
 });
