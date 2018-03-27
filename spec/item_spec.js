@@ -1,19 +1,19 @@
-describe('Item', function() {
+describe('Item', () => {
   let item;
 
-  beforeEach(function() {
+  beforeEach(() => {
     bread = new Item('Bread', 10, 30);
   });
 
-  it('has a name', function() {
+  it('has a name', () => {
     expect(bread.name).toEqual('Bread');
   });
 
-  it('has a sellIn', function() {
+  it('has a sellIn', () => {
     expect(bread.sellIn).toEqual(10);
   });
 
-  it('has a quality rating', function() {
+  it('has a quality rating', () => {
     expect(bread.quality).toEqual(30);
   });
 });
