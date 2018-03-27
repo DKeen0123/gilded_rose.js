@@ -1,6 +1,7 @@
 describe('Shop', () => {
   let shop;
   let bread;
+  let agedBrie;
 
   describe('#constructor', () => {
     beforeEach(() => {
@@ -62,6 +63,24 @@ describe('Shop', () => {
         });
 
         it('lowers the quality by 2', () => {
+          expect(shop.items[0].quality).toEqual(6);
+        });
+      });
+    });
+
+    describe('when it is an Aged Brie item', () => {
+      describe('and sellIn >= 0', () => {
+        beforeEach(() => {
+          agedBrie = {
+            name: 'Aged Brie',
+            sellIn: 10,
+            quality: 5
+          };
+          shop = new Shop([agedBrie]);
+          shop.updateQuality();
+        });
+
+        it('increases quality by 1', () => {
           expect(shop.items[0].quality).toEqual(6);
         });
       });
