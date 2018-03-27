@@ -14,7 +14,11 @@ describe('Shop', () => {
 
   describe('#updateQuality', () => {
     beforeEach(() => {
-      bread = new Item('Bread', 10, 8);
+      bread = {
+        name: 'Bread',
+        sellIn: 10,
+        quality: 8
+      };
       shop = new Shop([bread]);
     });
 
@@ -22,6 +26,7 @@ describe('Shop', () => {
       beforeEach(() => {
         shop.updateQuality();
       });
+
       it('degrades quality of item by 1', () => {
         expect(shop.items[0].quality).toEqual(7);
       });
