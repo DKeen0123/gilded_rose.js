@@ -13,18 +13,15 @@ describe('Shop', () => {
   });
 
   describe('#updateQuality', () => {
-    beforeEach(() => {
-      bread = {
-        name: 'Bread',
-        sellIn: 10,
-        quality: 8
-      };
-      shop = new Shop([bread]);
-    });
-
     describe('when it is a normal item', () => {
       describe('and sellIn is >= 0', () => {
         beforeEach(() => {
+          bread = {
+            name: 'Bread',
+            sellIn: 10,
+            quality: 8
+          };
+          shop = new Shop([bread]);
           shop.updateQuality();
         });
 
@@ -34,6 +31,22 @@ describe('Shop', () => {
 
         it('lowers the sellIn value of the item by 1', () => {
           expect(shop.items[0].sellIn).toEqual(9);
+        });
+      });
+
+      describe('and sellIn date is < 0', () => {
+        beforeEach(() => {
+          bread = {
+            name: 'Bread',
+            sellIn: -1,
+            quality: 8
+          };
+          shop = new Shop([bread]);
+          shop.updateQuality();
+        });
+
+        it('lowers the quality by 2', () => {
+          expect(shop.items[0].quality).toEqual(6);
         });
       });
     });
