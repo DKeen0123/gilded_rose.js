@@ -14,6 +14,22 @@ describe('Shop', () => {
 
   describe('#updateQuality', () => {
     describe('when it is a normal item', () => {
+      describe('and quality is 0', () => {
+        beforeEach(() => {
+          bread = {
+            name: 'Bread',
+            sellIn: 2,
+            quality: 0
+          };
+          shop = new Shop([bread]);
+          shop.updateQuality();
+        });
+
+        it("doesn't lower items quality if quality is 0", () => {
+          expect(shop.items[0].quality).toEqual(0);
+        });
+      });
+
       describe('and sellIn is >= 0', () => {
         beforeEach(() => {
           bread = {
