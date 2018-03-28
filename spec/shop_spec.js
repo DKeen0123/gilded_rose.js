@@ -117,6 +117,10 @@ describe('Shop', () => {
       it('doesnt increase or decrease in quality as it gets older', () => {
         expect(shop.items[0].quality).toEqual(30);
       });
+
+      it('doesnt decrease sellIn value', () => {
+        expect(shop.items[0].sellIn).toEqual(10);
+      });
     });
   });
 });
