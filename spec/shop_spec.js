@@ -2,6 +2,7 @@ describe('Shop', () => {
   let shop;
   let bread;
   let agedBrie;
+  let sulfuras;
 
   describe('#constructor', () => {
     beforeEach(() => {
@@ -99,6 +100,22 @@ describe('Shop', () => {
             expect(shop.items[0].quality).toEqual(50);
           });
         });
+      });
+    });
+
+    describe('when it is a legendary item', () => {
+      beforeEach(() => {
+        sulfuras = {
+          name: 'Sulfuras, Hand of Ragnaros',
+          sellIn: 10,
+          quality: 30
+        };
+        shop = new Shop([sulfuras]);
+        shop.updateQuality();
+      });
+
+      it('doesnt increase or decrease in quality as it gets older', () => {
+        expect(shop.items[0].quality).toEqual(30);
       });
     });
   });
