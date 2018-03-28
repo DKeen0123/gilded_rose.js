@@ -8,7 +8,7 @@ describe('TypeChecker', () => {
       sellIn: 10,
       quality: 8
     };
-    typeChecker = new typeChecker(bread);
+    typeChecker = new TypeChecker(bread);
   });
 
   it('takes an item as an argument and saves it as a property', () => {
