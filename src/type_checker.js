@@ -1,5 +1,5 @@
 class TypeChecker {
   constructor(item) {
-    this.item = item;
+    this.item = item.name;
   }
 }

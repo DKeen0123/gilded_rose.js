@@ -12,6 +12,6 @@ describe('TypeChecker', () => {
   });
 
   it('takes an item as an argument and saves it as a property', () => {
-    expect(typeChecker.item).toEqual(bread);
+    expect(typeChecker.item).toEqual('Bread');
   });
 });
