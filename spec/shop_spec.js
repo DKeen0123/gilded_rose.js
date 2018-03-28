@@ -83,6 +83,22 @@ describe('Shop', () => {
         it('increases quality by 1', () => {
           expect(shop.items[0].quality).toEqual(6);
         });
+
+        describe('and quality is 50', () => {
+          beforeEach(() => {
+            agedBrie = {
+              name: 'Aged Brie',
+              sellIn: 10,
+              quality: 50
+            };
+            shop = new Shop([agedBrie]);
+            shop.updateQuality();
+          });
+
+          it('doesnt increase quality above 50', () => {
+            expect(shop.items[0].quality).toEqual(50);
+          });
+        });
       });
     });
   });
