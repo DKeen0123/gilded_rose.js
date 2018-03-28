@@ -156,6 +156,22 @@ describe('Shop', () => {
           expect(shop.items[0].quality).toEqual(14);
         });
       });
+
+      describe('and sellIn value is < 11 but > 5', () => {
+        beforeEach(() => {
+          backstagePass = {
+            name: 'Backstage passes to a TAFKAL80ETC concert',
+            sellIn: 10,
+            quality: 13
+          };
+          shop = new Shop([backstagePass]);
+          shop.updateQuality();
+        });
+
+        it('increases quality by 2', () => {
+          expect(shop.items[0].quality).toEqual(15);
+        });
+      });
     });
   });
 });
