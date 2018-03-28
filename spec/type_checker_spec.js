@@ -1,5 +1,5 @@
-describe('TypeChecker', () => {
-  let typeChecker;
+describe('#typeChecker', () => {
+  let shop;
   let bread;
 
   beforeEach(() => {
@@ -8,10 +8,10 @@ describe('TypeChecker', () => {
       sellIn: 10,
       quality: 8
     };
-    typeChecker = new TypeChecker(bread);
+    shop = new Shop([bread]);
   });
 
-  it('takes an item as an argument and saves it as a property', () => {
-    expect(typeChecker.item).toEqual('Bread');
+  it('takes an item as an argument and returns its name', () => {
+    expect(shop.typeChecker(bread)).toEqual('Bread');
   });
 });
