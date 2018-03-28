@@ -101,6 +101,22 @@ describe('Shop', () => {
           });
         });
       });
+
+      describe('and sellIn < 0', () => {
+        beforeEach(() => {
+          agedBrie = {
+            name: 'Aged Brie',
+            sellIn: -1,
+            quality: 30
+          };
+          shop = new Shop([agedBrie]);
+          shop.updateQuality();
+        });
+
+        it('increases quality by 2', () => {
+          expect(shop.items[0].quality).toEqual(32);
+        });
+      });
     });
 
     describe('when it is a legendary item', () => {
