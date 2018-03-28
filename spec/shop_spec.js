@@ -3,6 +3,7 @@ describe('Shop', () => {
   let bread;
   let agedBrie;
   let sulfuras;
+  let backstagePass;
 
   describe('#constructor', () => {
     beforeEach(() => {
@@ -136,6 +137,24 @@ describe('Shop', () => {
 
       it('doesnt decrease sellIn value', () => {
         expect(shop.items[0].sellIn).toEqual(10);
+      });
+    });
+
+    describe('when it is a backstage pass', () => {
+      describe('and sellIn is > 10', () => {
+        beforeEach(() => {
+          backstagePass = {
+            name: 'Backstage passes to a TAFKAL80ETC concert',
+            sellIn: 12,
+            quality: 13
+          };
+          shop = new Shop([backstagePass]);
+          shop.updateQuality();
+        });
+
+        it('increases in quality by 1', () => {
+          expect(shop.items[0].quality).toEqual(14);
+        });
       });
     });
   });
